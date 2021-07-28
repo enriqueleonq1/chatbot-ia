@@ -1,0 +1,386 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Traveludo &mdash; Tu sitio de viajes de confianza</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Themify Icons-->
+	<link rel="stylesheet" href="css/themify-icons.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+
+	<!--Llamada a la API del google sheet-->
+	<script src="js/llamadaApi.js"></script>
+
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	</head>
+	<body>
+		
+	<div class="gtco-loader"></div>
+	
+	<div id="page">
+	
+	<!--Integracion del chatbot-->
+	<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+        intent="WELCOME"
+        chat-title="Jexi - Tu Asistente Virtual"
+        agent-id="8506de91-a0c2-46e6-870d-56c627df9fa1"
+        language-code="es"
+    ></df-messenger>
+
+	<!-- <div class="page-inner"> -->
+	<nav class="gtco-nav" role="navigation">
+		<div class="gtco-container">
+			
+			<div class="row">
+				<div class="col-sm-4 col-xs-12">
+					<div id="gtco-logo"><a href="index.html">Traveludo <em>.</em></a></div>
+				</div>
+			</div>
+			
+		</div>
+	</nav>
+	
+	<header id="gtco-header" class="gtco-cover gtco-cover-md" role="banner" style="background-image: url(images/img_bg_2.jpg)">
+		<div class="overlay"></div>
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0 text-left">
+					
+
+					<div class="row row-mt-15em">
+						<div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
+							<h1>¿Planeando viajar a algún lugar en específico?</h1>	
+						</div>
+						<div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
+							<div class="form-wrap">
+								<div class="tab">
+									
+									<div class="tab-content">
+										<div class="tab-content-inner active" data-content="signup">
+											<h3>Consigue tu destino</h3>
+											<fo bbrm action="#" id="formulario">
+												<div class="row form-group">
+													<div class="col-md-12">Nombre</label>
+														<input type="text" id="nombre" placeholder="¿Como te llamas?"class="form-control">
+													</div>
+												</div>
+												<div class="row form-group">
+													<div class="col-md-12">
+														<label for="activities">Tipo Reserva</label>
+														<select name="#" id="tipo" class="form-control">
+															<option value="vuelo">Vuelo</option>
+															<option value="hotel">Hotel</option>
+														</select>
+													</div>
+												</div>
+												<div class="row form-group">
+													<div class="col-md-12">
+														<label for="activities">Origen</label>
+														<select name="#" id="origen" class="form-control">
+														</select>
+													</div>
+												</div>
+												<div class="row form-group">
+													<div class="col-md-12">
+														<label for="destination">Destino</label>
+														<select name="#" id="destino" class="form-control"></select>
+													</div>
+												</div>
+
+												<div class="row form-group">
+													<div class="col-md-12">
+														<input type="submit" onclick="cambiarPagina()" class="btn btn-primary btn-block" value="Buscar">
+													</div>
+												</div>
+											</form>	
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+							
+					
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	<div class="gtco-section">
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+					<h2>Destinos Más Frecuentes</h2>
+					<p>Colección de los destinos favoritos de nuestros clientes, a la hora de emprender una nueva aventura</p>
+				</div>
+			</div>
+			<div class="row">
+
+				<div class="col-lg-4 col-md-4 col-sm-6">
+					<a href="#" class="fh5co-card-item">
+						<figure>
+							<div class="overlay"><i class="ti-plus"></i></div>
+							<img src="images/porlamar.png" alt="Image" class="img-responsive">
+						</figure>
+						<div class="fh5co-text">
+							<h2>Porlamar, Venezuela</h2>
+							<p>Ciudad ubicada al sureste de la Isla de Margarita, Nueva Esparta, Venezuela.</p>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-6">
+					<a href="#" class="fh5co-card-item">
+						<figure>
+							<div class="overlay"><i class="ti-plus"></i></div>
+							<img src="images/caracas.jpg" alt="Image" class="img-responsive">
+						</figure>
+						<div class="fh5co-text">
+							<h2>Caracas, Venezuela</h2>
+							<p>Es un centro comercial y cultural ubicado en un valle montañoso del norte.</p>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-6">
+					<a href="#" class="fh5co-card-item">
+						<figure>
+							<div class="overlay"><i class="ti-plus"></i></div>
+							<img src="images/cumana.jpg" alt="Image" class="img-responsive">
+						</figure>
+						<div class="fh5co-text">
+							<h2>Cumaná, Venezuela</h2>
+							<p>Es una importante ciudad venezolana del oriente del país, capital del estado Sucre</p>
+						</div>
+					</a>
+				</div>
+
+
+				<div class="col-lg-4 col-md-4 col-sm-6">
+					<a href="#" class="fh5co-card-item">
+						<figure>
+							<div class="overlay"><i class="ti-plus"></i></div>
+							<img src="images/losroques.jpg" alt="Image" class="img-responsive">
+						</figure>
+						<div class="fh5co-text">
+							<h2>Los Roques, Venezuela</h2>
+							<p>Es un archipiélago ubicado a unos 160 km al norte de la capital, Caracas.</p>
+						</div>
+					</a>
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-6">
+					<a href="#" class="fh5co-card-item">
+						<figure>
+							<div class="overlay"><i class="ti-plus"></i></div>
+							<img src="images/canaima.jpg" alt="Image" class="img-responsive">
+						</figure>
+						<div class="fh5co-text">
+							<h2>Canaima, Venezuela</h2>
+							<p>Es un parque nacional ubicado en el estado Bolívar, Venezuela</p>
+						</div>
+					</a>
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-6">
+					<a href="#" class="fh5co-card-item">
+						<figure>
+							<div class="overlay"><i class="ti-plus"></i></div>
+							<img src="images/maturin.jpg" alt="Image" class="img-responsive">
+						</figure>
+						<div class="fh5co-text">
+							<h2>Maturín, Venezuela</h2>
+							<p>Ciudad venezolana de la región nororiental, capital del estado Monagas</p>
+						</div>
+					</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+
+	<div class="gtco-cover gtco-cover-sm" style="background-image: url(images/img_bg_1.jpg)"  data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="gtco-container text-center">
+			<div class="display-t">
+				<div class="display-tc">
+					<h1>Te ofrecemos los mejores destino turisticos del país, al mejor precio posible</h1>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+	<div id="gtco-counter" class="gtco-section">
+		<div class="gtco-container">
+
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
+					<h2>Nuestras Estadísticas</h2>
+					<p>Tenemos los mejores destinos turísticos del país, a los mejores precios del mercado, convirtiéndonos en la agencia turística número 1 de Venezuela</p>
+				</div>
+			</div>
+
+			<div class="row">
+				
+				<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
+					<div class="feature-center">
+						<span class="counter js-counter" data-from="0" data-to="27" data-speed="5000" data-refresh-interval="50">1</span>
+						<span class="counter-label">Destinos</span>
+
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
+					<div class="feature-center">
+						<span class="counter js-counter" data-from="0" data-to="84" data-speed="5000" data-refresh-interval="50">1</span>
+						<span class="counter-label">Hoteles</span>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
+					<div class="feature-center">
+						<span class="counter js-counter" data-from="0" data-to="29875" data-speed="5000" data-refresh-interval="50">1</span>
+						<span class="counter-label">Usuarios</span>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
+					<div class="feature-center">
+						<span class="counter js-counter" data-from="0" data-to="1360576" data-speed="5000" data-refresh-interval="50">1</span>
+						<span class="counter-label">Horas de Viaje</span>
+
+					</div>
+				</div>
+					
+			</div>
+		</div>
+	</div>
+
+	<footer id="gtco-footer" role="contentinfo">
+		<div class="gtco-container">
+			<div class="row row-p	b-md">
+
+				<div class="col-md-4">
+					<div class="gtco-widget">
+						<h3>Acerca de Nosotros</h3>
+						<p>Somos una agencia de viajes, que contamos con asesoría profesional y las mejores ofertas especializadas en hospedaje, boleteria aérea, te ofrecemos servicios de turismo adaptados a tus necesidades a los mejores precios del mercado</p>
+					</div>
+				</div>
+
+				<div class="col-md-2 col-md-push-1">
+					<div class="gtco-widget">
+						<h3>Destinos</h3>
+						<ul class="gtco-footer-links">
+							<li><a href="#">Caracas</a></li>
+							<li><a href="#">Los Roques</a></li>
+							<li><a href="#">La Fria</a></li>
+							<li><a href="#">Porlamar</a></li>
+							<li><a href="#">Maturin</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-md-2 col-md-push-1">
+					<div class="gtco-widget">
+						<h3>Hoteles</h3>
+						<ul class="gtco-footer-links">
+							<li><a href="#">Palm Beach</a></li>
+							<li><a href="#">Lidotel</a></li>
+							<li><a href="#">Sunsol</a></li>
+							<li><a href="#">Eurobuilding</a></li>
+							<li><a href="#">Hesperia</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-md-push-1">
+					<div class="gtco-widget">
+						<h3>Contacto</h3>
+						<ul class="gtco-quick-contact">
+							<li><a href="#"><i class="icon-phone"></i> +0281-1234567</a></li>
+							<li><a href="#"><i class="icon-mail2"></i> traveludo@agency.com</a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</footer>
+	<!-- </div> -->
+
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- countTo -->
+	<script src="js/jquery.countTo.js"></script>
+
+	<!-- Stellar Parallax -->
+	<script src="js/jquery.stellar.min.js"></script>
+
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	
+	<!-- Datepicker -->
+	<script src="js/bootstrap-datepicker.min.js"></script>
+	
+
+	<!-- Main -->
+	<script src="js/main.js"></script>
+
+	<!--Scripts del enrutador-->
+    <script src="js/cambiarPagina.js"></script>
+
+	</body>
+</html>
+
